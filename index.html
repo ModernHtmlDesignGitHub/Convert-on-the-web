@@ -2,12 +2,21 @@
 <html>
 <head>
 <link rel="stylesheet" href="stylesheet.css">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-icon.png">
+<link rel="icon" size="192x192" href="android-icon-192x192.png">
+<title>Text to HTML on the Web | MHD</title>
 </head>
 <body>
+	<script>var show = document.getElementById("showopt")</script>
 <button onclick="goReg()" class="button">Convert (regular)</button>
 <button onclick="goLarge()" class="button">Convert (large text)</button>
-<button onclick="saveTextAsFile('txt_py', 'convert.html')" class="button hide" id="dldopt">Download output</button>
-<button class="button float" onclick="hideItem()" style="align-items: center;" id="dldopt">Show/Hide output</button>
+<button class="nobutton button" onclick="goFancy()" style="outline: none;">Convert (fancy)</button>
+<button class="nobutton button" onclick="goLargeFancy()" style="outline: none;">Convert (large and fancy)</button>
+<button onclick="saveTextAsFile('txt_py', 'convert.html')" class="button hide float" id="dldopt">Download output</button>
+<button onclick="hideItem()" class="button hide float" id="showopt">Show/Hide output</button>
+
+
 <textarea id="txt_py" class="txt2convt" placeholder="Enter text to convert here." cols="80" rows="20" width="1900px" spellcheck="true"></textarea>
 <div id="output" style="display: none;">
 <textarea id="textArea" class="txt2disp" placeholder=" hi" cols="80" rows="20" width="100%" spellcheck="false" readonly="true">Converted text appears here.</textarea>
@@ -17,15 +26,48 @@ function goReg() {
     var c1 = document.getElementById('txt_py').value;
     var d1 = document.getElementById('textArea');
 	var hide = document.getElementById("dldopt");
+	var show = document.getElementById("showopt")
     d1.innerHTML = '<p>' + c1 + '</p>';
     hide.style.display = "inline-block";
+	show.style.display = "inline-block";
 }
 function goLarge() {
     var c1 = document.getElementById('txt_py').value;
     var d1 = document.getElementById('textArea');
 	var hide = document.getElementById("dldopt");
+	var show = document.getElementById("showopt")
     d1.innerHTML = '<h2>' + c1 + '</h2>';
 	hide.style.display = "inline-block";
+	show.style.display = "inline-block";
+}
+function goFancy() {
+    var c1 = document.getElementById('txt_py').value;
+    var d1 = document.getElementById('textArea');
+	var hide = document.getElementById("dldopt");
+    d1.innerHTML = '<p style="font-family: cursive, sans-serif">' + c1 + '</p>';
+	hide.style.display = "none";
+	hide.style.backgroundColor = "blue";
+	hide.style.color = "blue";
+	hide.style.cursor = "context-menu";
+	show.style.display = "none";
+	show.style.color = "blue";
+	show.style.backgroundColor = "blue";
+	show.style.cursor = "context-menu"
+
+}
+function goLargeFancy() {
+    var c1 = document.getElementById('txt_py').value;
+    var d1 = document.getElementById('textArea');
+	var hide = document.getElementById("dldopt");
+    d1.innerHTML = '<h2 style="font-family: cursive, sans-serif">' + c1 + '</h2>';
+	hide.style.display = "none";
+	hide.style.backgroundColor = "blue";
+	hide.style.color = "blue";
+	hide.style.cursor = "context-menu";
+	show.style.display = "none";
+	show.style.backgroundColor = "blue";
+	show.style.color = "blue";
+	show.style.cursor = "context-menu";
 }
 function saveTextAsFile(textToWrite, fileNameToSaveAs)
     {
