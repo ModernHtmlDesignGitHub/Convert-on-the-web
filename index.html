@@ -1,19 +1,64 @@
 <!DOCTYPE html>
-<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
-<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
-<!--[if IE 8]><html class="preIE9"><![endif]-->
-<!--[if gte IE 9]><!--><html><!--<![endif]-->
-  <head>
-    <meta charset="UTF-8">
-    <title>Project Renaissance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheet.css" type="text/css">
-  <link rel="shortcut icon" href="icon/favicon.ico">
-  <link rel="apple-touch-icon" href="icon/apple-icon.png">
-  <link rel="icon" size="192x192" href="icon/android-icon-192x192.png">
-  </head>
+<html>
+<head>
+<link rel="stylesheet" href="stylesheet.css">
+</head>
 <body>
-  <p>this is no linger a site. Please use:</p>
-  <a href="https://projectrenaissancesms.github.io/movingsms.">https://projectrenaissancesms.github.io/movingsms.</a>
-  </body>
+<button onclick="goReg()" class="button">Convert (regular)</button>
+<button onclick="goLarge()" class="button">Convert (large text)</button>
+<button onclick="saveTextAsFile('txt_py', 'convert.html')" class="button hide" id="dldopt">Download output</button>
+<button class="button float" onclick="hideItem()" style="align-items: center;" id="dldopt">Show/Hide output</button>
+<textarea id="txt_py" class="txt2convt" placeholder="Enter text to convert here." cols="80" rows="20" width="1900px" spellcheck="true"></textarea>
+<div id="output" style="display: none;">
+<textarea id="textArea" class="txt2disp" placeholder=" hi" cols="80" rows="20" width="100%" spellcheck="false" readonly="true">Converted text appears here.</textarea>
+</div>
+<script>
+function goReg() {
+    var c1 = document.getElementById('txt_py').value;
+    var d1 = document.getElementById('textArea');
+	var hide = document.getElementById("dldopt");
+    d1.innerHTML = '<p>' + c1 + '</p>';
+    hide.style.display = "inline-block";
+}
+function goLarge() {
+    var c1 = document.getElementById('txt_py').value;
+    var d1 = document.getElementById('textArea');
+	var hide = document.getElementById("dldopt");
+    d1.innerHTML = '<h2>' + c1 + '</h2>';
+	hide.style.display = "inline-block";
+}
+function saveTextAsFile(textToWrite, fileNameToSaveAs)
+    {
+    	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'}); 
+    	var downloadLink = document.createElement("a");
+    	downloadLink.download = fileNameToSaveAs;
+    	downloadLink.innerHTML = "Download File";
+    	if (window.webkitURL != null)
+    	{
+    		// Chrome allows the link to be clicked
+    		// without actually adding it to the DOM.
+    		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    	}
+    	else
+    	{
+    		// Firefox requires the link to be added to the DOM
+    		// before it can be clicked.
+    		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    		downloadLink.onclick = destroyClickedElement;
+    		downloadLink.style.display = "none";
+    		document.body.appendChild(downloadLink);
+    	}
+    
+    	downloadLink.click();
+    }
+function hideItem() {
+  var hide = document.getElementById("output");
+  if (hide.style.display === "block") {
+    hide.style.display = "none";
+  } else {
+    hide.style.display = "block";
+  }
+}
+</script>
+</body>
 </html>
