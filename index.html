@@ -7,8 +7,8 @@
 <link rel="icon" size="192x192" href="android-icon-192x192.png">
 <title>Text to HTML on the Web | MHD</title>
 </head>
-<body>
-	<script>var show = document.getElementById("showopt")</script>
+<body onload="downloadApp()">
+	<script>var show = document.getElementById("showopt");</script>
 <button onclick="goReg()" class="button">Convert (regular)</button>
 <button onclick="goLarge()" class="button">Convert (large text)</button>
 <button class="nobutton button" onclick="goFancy()" style="outline: none;">Convert (fancy)</button>
@@ -102,5 +102,49 @@ function hideItem() {
   }
 }
 </script>
+<script type="text/javascript">function downloadApp() {
+	var userAgent = window.navigator.userAgent,
+		platform = window.navigator.platform,
+		macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+		windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+		iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+		scriptdownload = null;
+	if (macosPlatforms.indexOf(platform) !== -1) {
+	  scriptdownload = 'Download for macOS';
+	  document.getElementById("windows").hidden = true;
+	  alert("This has not been tested. Please contect modernhtmldesign@outlook.com if you experience any problems.");
+	} else if (iosPlatforms.indexOf(platform) !== -1) {
+	  scriptdownload = 'No iOS app yet!';
+	} else if (windowsPlatforms.indexOf(platform) !== -1) {
+	  scriptdownload = 'Download for Windows (Vista, 7, 8.x, 10)';
+	  document.getElementById("unix").hidden = true;
+	} else if (/Android/.test(userAgent)) {
+	  scriptdownload = 'No Android app yet!';
+	} else if (!os && /Linux/.test(platform)) {
+	  scriptdownload = 'Download for Linux';
+	  document.getElementById("windows").hidden = true;
+	  alert("This has been tested in Ubuntu. Please contect modernhtmldesign@outlook.com if you experience any problems.");
+	}
+	return scriptdownload;
+  }
+  var returnDownload = downloadApp();
+</script>
+<script>
+function appType() {
+document.getElementById("downloadText").innerHTML = scriptdownload;
+}
+</script>
+	<p>Download the application for your computer.</p>
+	<p id="downloadText"></p>
+
+	<a href="Windows-Setup.zip" download="Setup.zip">
+		<button id="windows" class="button" style="background-color: #4CAF50;">Download for Windows</button>
+	</a>
+	<br>
+	<br>
+	<br>
+	<a href="Unix-Setup.zip" download="Setup.zip">
+		<button id="unix" class="button" style="background-color: #4CAF50;">Download for macOS and Linux</button>
+	</a>
 </body>
 </html>
