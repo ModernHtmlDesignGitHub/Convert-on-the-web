@@ -5,7 +5,7 @@ textarea {
   padding:3px;
 }
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: rgba(76, 175, 80, 1); /* Green */
     border: none;
     color: #111;
     padding: 20px;
@@ -52,17 +52,17 @@ body {
   cursor: pointer;
   border-color: whitesmoke;
   border-width: thin;
+  background-color: rgba(76, 175, 80, 1);
+  
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: lightgreen;
-  color: black;
-  border-color: black;
-  border-width: 400px;
+  background-color: rgba(60, 130, 60, 1);
+  display: inline-block;
 }
 
-.dropdown {
-  position: relative;
+.button:hover, .button:focus {
+  background-color: rgba(60, 130, 60, 1);
   display: inline-block;
 }
 
