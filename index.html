@@ -8,29 +8,30 @@
 <link rel="icon" size="192x192" href="android-icon-192x192.png">
 <title>Text to HTML on the Web | MHD</title>
 </head>
-<body onload="downloadApp()">
-	<script>var show = document.getElementById("showopt");</script>
+<body onload="downloadCorrectApp()">
 <button onclick="goReg()" class="button">Convert (regular)</button>
 <button onclick="goLarge()" class="button">Convert (large text)</button>
 <button class="nobutton button" onclick="goFancy()" style="outline: none; color: blue; background-color: blue;">Convert (fancy)</button>
 <button class="nobutton button" onclick="goLargeFancy()" style="outline: none; color: blue; background-color: blue;">Convert (large and fancy)</button>
-<button onclick="saveTextAsFile('txt_py', 'convert.html')" class="button hide float" id="dldopt">Download output</button>
+<button onclick="saveTextAsFile()" class="button hide float" id="dldopt">Download output</button>
 <button onclick="hideItem()" class="button hide float" id="showopt">Show/Hide output</button>
 <textarea id="txt_py" class="txt2convt" placeholder="Enter text to convert here." cols="80" rows="20" width="1900px" spellcheck="true"></textarea>
 <div id="output" style="display: none;">
 <textarea id="textArea" class="txt2disp" placeholder=" hi" cols="80" rows="20" width="100%" spellcheck="false" readonly="true">Converted text appears here.</textarea>
 </div>
+<div>
 	<p>Download the application for your computer.</p>
 	<p id="downloadText"></p>
 
 	<a href="Windows-Setup.zip" download="Setup.zip">
 		<button id="windows" class="button dropbtn">Download for Windows</button>
 	</a>
-	<br>
-	<br>
-	<br>
 	<a href="Unix-Setup.zip" download="Setup.zip">
 		<button id="unix" class="button dropbtn">Download for macOS and Linux</button>
 	</a>
+	<a href="downloadtable.html">
+		<button class="button dropbtn">All Downloads</button>
+	</a>
+</div>
 </body>
 </html>

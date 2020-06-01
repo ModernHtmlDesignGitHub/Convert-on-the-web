@@ -52,7 +52,7 @@ body {
   cursor: pointer;
   border-color: whitesmoke;
   border-width: thin;
-  background-color: rgba(76, 175, 80, 1);
+  background-color: #4caf50;
   
 }
 
@@ -105,4 +105,27 @@ cursor: context-menu;
 }
 .main {
   align-items: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 3px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-image: linear-gradient(violet,indigo);
+}
+.mytable {
+  background-image: linear-gradient(#4caf50, blue, blueviolet,blue,#4caf50);
+  margin: auto;
+  padding: 0 10px;
+}
+.mydiv {
+  background-image: linear-gradient(purple, violet, indigo,violet,purple);
 }
