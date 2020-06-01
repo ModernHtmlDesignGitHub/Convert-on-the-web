@@ -129,3 +129,6 @@ tr:nth-child(even) {
 .mydiv {
   background-image: linear-gradient(purple, violet, indigo,violet,purple);
 }
+.inline {display: inline;}
+.float {float: right;}
+.margin {margin-top: 10px;}

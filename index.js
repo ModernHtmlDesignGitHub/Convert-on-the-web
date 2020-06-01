@@ -12,18 +12,24 @@ function goReg() {
 	String(d1)
     hide.style.display = "inline-block";
 	show.style.display = "inline-block";
+	hide.style.backgroundColor = "#4caf50";
+	hide.style.color = "black";
+	show.style.color = "black";
+	show.style.backgroundColor = "#4caf50";
 }
 function goLarge() {
     var c1 = document.getElementById('txt_py').value;
 	var d1 = document.getElementById('textArea');
 	var hide = document.getElementById("dldopt");
 	var show = document.getElementById("showopt");
-	var hidden = document.getElementById("textArea");
-var hiddenbtn = document.getElementById("showopt");
 	d1.innerHTML = '<h2>' + c1 + '</h2>';
 	String(d1);
 	hide.style.display = "inline-block";
 	show.style.display = "inline-block";
+	hide.style.backgroundColor = "#4caf50";
+	hide.style.color = "black";
+	show.style.color = "black";
+	show.style.backgroundColor = "#4caf50";
 }
 function goFancy() {
     var c1 = document.getElementById('txt_py').value;
