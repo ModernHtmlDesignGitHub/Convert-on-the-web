@@ -1,6 +1,8 @@
 var hide = document.getElementById("dldopt");
 var hideDownloadWindows = document.getElementById("windows");
 var hideDownloadUnixBase = document.getElementById("unix");
+var hidden = document.getElementById("textArea");
+var hiddenbtn = document.getElementById("showopt")
 function goReg() {
     var c1 = document.getElementById('txt_py').value;
     var d1 = document.getElementById('textArea');
@@ -14,10 +16,12 @@ function goReg() {
 function goLarge() {
     var c1 = document.getElementById('txt_py').value;
 	var d1 = document.getElementById('textArea');
-	var hide = document.getElementById("dldopt")
+	var hide = document.getElementById("dldopt");
 	var show = document.getElementById("showopt");
+	var hidden = document.getElementById("textArea");
+var hiddenbtn = document.getElementById("showopt");
 	d1.innerHTML = '<h2>' + c1 + '</h2>';
-	String(d1)
+	String(d1);
 	hide.style.display = "inline-block";
 	show.style.display = "inline-block";
 }
@@ -25,8 +29,10 @@ function goFancy() {
     var c1 = document.getElementById('txt_py').value;
     var d1 = document.getElementById('textArea');
 	var hide = document.getElementById("dldopt");
+	var show = document.getElementById("showopt");
+	var byebye = document.getElementById("output");
 	d1.innerHTML = '<p style="font-family: cursive, sans-serif">' + c1 + '</p>';
-	String(d1)
+	String(d1);
 	hide.style.display = "none";
 	hide.style.backgroundColor = "blue";
 	hide.style.color = "blue";
@@ -35,18 +41,26 @@ function goFancy() {
 	show.style.color = "blue";
 	show.style.backgroundColor = "blue";
 	show.style.cursor = "context-menu";
-  if (hide.style.display === "block") {
-    hide.style.display = "none";
-  } else {
+	byebye.style.display = "none";
+  	if (hide.style.display === "block") {
+    	hide.style.display = "none";
+  	} else {
     hide.style.display = "block";
-  }
+  	}
+  	show.style.display = "none";
+  	if (d1.style.dispaly === "block") {
+	  d1.style.display = "none";
+  	} else {
+	  d1.style.display = "block";
+  	}
 }
+
 function goLargeFancy() {
     var c1 = document.getElementById('txt_py').value;
     var d1 = document.getElementById('textArea');
 	var hide = document.getElementById("dldopt");
 	d1.innerHTML = '<h2 style="font-family: cursive, sans-serif">' + c1 + '</h2>';
-	String(d1)
+	String(d1);
 	hide.style.display = "none";
 	hide.style.backgroundColor = "blue";
 	hide.style.color = "blue";
@@ -60,6 +74,7 @@ function goLargeFancy() {
   } else {
     hide.style.display = "block";
   }
+  hidden.style.display = "none";
 }
 function saveTextAsFile() {
 		var textToWrite = document.getElementById('textArea').value;
