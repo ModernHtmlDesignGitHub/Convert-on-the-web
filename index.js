@@ -139,19 +139,25 @@ function downloadCorrectApp() {
 	  hideDownloadUnixBase.style.display = "inline-block";
 	} else if (iosPlatforms.indexOf(platform) !== -1) {
 	  os = 'iOS';
-	  window.location.href = "sorry.html";
-	  window.location.replace("sorry.html");
+	  setTimeout(webredirect, 7000);
 	} else if (windowsPlatforms.indexOf(platform) !== -1) {
 	  os = 'Windows';
 	  hideDownloadUnixBase.style.display = "none";
 	  hideDownloadWindows.style.display = "inline-block";
 	} else if (/Android/.test(userAgent)) {
 	  os = 'Android';
-	  window.location.href = "sorry.html";
-	  window.location.replace("sorry.html");
+	  setTimeout(webredirect, 7000);
 	} else if (!os && /Linux/.test(platform)) {
 	  os = 'Linux';
 	}
   
 	return os;
+}
+function webredirect() {
+	window.location.href = "sorry.html";
+	window.location.replace("sorry.html");
+}
+function continuetopage() {
+	window.location.href = "home.html";
+	window.location.replace("home.html");
 }
